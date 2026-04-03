@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday ❤️</title>
+
+<style>
+
+/* FONT */
+@font-face {
+    font-family: 'MyCursive';
+    src: url('EduNSWACTHandCursive.ttf');
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: #333;
+}
+
+
+/* layout */
+.screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* text */
+h1 {
+    font-size: 48px;
+    font-family: 'MyCursive';
+}
+
+p {
+    font-size: 24px;
+}
+
+
+
+.love {
+    font-size: 32px;
+    font-family: 'MyCursive';
+}
+
+
+
+/* image */
+img {
+    width: 300px;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+
+
+/* PAGE 2 IMAGE */
+#page2 img {
+    width: 90%;
+    max-width: 300px;
+    border-radius: 50px;
+}
+
+/* SLIDE UP */
+#page2, #page3 {
+    display: none;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s ease;
+}
+
+
+
+#page2.show, #page3.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* button */
+button {
+    padding: 12px 20px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+
+
+/* heading */
+.final-text {
+    font-size: 42px;
+    font-family: 'MyCursive';
+    margin-bottom: 15px;
+    color: #ff4d6d;
+    animation: fadeIn 1s ease;
+}
+
+/* teddy gif */
+.teddy {
+    width: 150px;
+    margin: 10px 0;
+    animation: fadeIn 1.5s ease;
+}
+
+/* final image */
+.final-img {
+    width: 90%;
+    max-width: 420px;
+    border-radius: 20px;
+    margin-top: 15px;
+    animation: fadeIn 2s ease;
+}
+
+/* animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+
+
+
+COLLAGE BIG VERSION */
+.collage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;   /* more spacing */
+    margin-top: 30px;
+}
+
+/* BIGGER photos */
+.photo {
+    width: 240px; 
+    border: 12px solid white;
+    background: white;
+    box-shadow: 0px 12px 30px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* tilt */
+.left {
+    transform: rotate(-8deg);
+}
+
+.center {
+    transform: rotate(0deg);
+}
+
+.right {
+    transform: rotate(8deg);
+}
+
+
+
+.note {
+    margin-top: 30px;
+    font-size: 28px;
+    font-family: 'MyCursive';
+    color: #ff4d6d;
+}
+
+
+
+
+/* page4 same animation */
+#page4 {
+    display: none;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s ease;
+}
+
+#page4.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* letter box */
+.letter {
+    background: white;
+    color: #333;
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 500px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<!-- PAGE 1 -->
+<div class="screen" id="page1">
+    <h1>🎉 Happy Birthday [Name] 💖</h1>
+
+    <img src="gif.gif">
+
+    <p class="love">
+        I love you soo muchh 🥰🫂
+    </p>
+
+    <button onclick="nextPage()">Heheh🎁</button>
+</div>
+
+
+
+
+<!-- PAGE 2 (NOW COLLAGE) -->
+<div class="screen" id="page2">
+
+    <div class="collage">
+        <img src="pg3img1.png" class="photo left">
+        <img src="pg3img1.png" class="photo center">
+        <img src="pg3img1.png" class="photo right">
+    </div>
+
+    <p class="note">I love these memories… with you ❤️</p>
+
+    <button onclick="openPage3()">Next 💌</button>
+
+</div>
+
+
+
+
+<!-- PAGE 3 -->
+<div class="screen" id="page3">
+
+    <h1 class="final-text">Last but not the least 😋 </h1>
+
+    <!-- TEDDY GIF -->
+    <img src="teddy.gif" class="teddy">
+ 
+<button onclick="openPage4()">One more thing 💌</button>
+
+     </div>
+
+
+
+
+<!-- PAGE 4 -->
+<div class="screen" id="page4">
+
+    <div class="letter">
+        <h2 style="font-family:'MyCursive'">💌 For You</h2>
+
+        <p id="letterText"></p>
+    </div>
+
+</div>
+
+
+<script>
+
+// page1 → page2
+function nextPage() {
+    let p1 = document.getElementById("page1");
+    let p2 = document.getElementById("page2");
+
+    p1.style.opacity = "0";
+
+    setTimeout(() => {
+        p1.style.display = "none";
+        p2.style.display = "flex";
+
+        setTimeout(() => {
+            p2.classList.add("show");
+        }, 50);
+
+    }, 600);
+}
+
+
+
+
+
+// page2 → page3
+function openPage3() {
+    let p2 = document.getElementById("page2");
+    let p3 = document.getElementById("page3");
+
+    p2.style.opacity = "0";
+
+    setTimeout(() => {
+        p2.style.display = "none";
+        p3.style.display = "flex";
+
+        setTimeout(() => {
+            p3.classList.add("show");
+        }, 50);
+
+    }, 600);
+}
+
+
+
+
+
+// page3 → page4
+function openPage4() {
+    let p3 = document.getElementById("page3");
+    let p4 = document.getElementById("page4");
+
+    p3.style.opacity = "0";
+
+    setTimeout(() => {
+        p3.style.display = "none";
+        p4.style.display = "flex";
+
+        setTimeout(() => {
+            p4.classList.add("show");
+            startTyping();
+        }, 50);
+
+    }, 600);
+}
+
+
+
+
+</script>
+
+</body>
+</html>
