@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday ❤️</title>
+
+<style>
+
+/* FONT */
+@font-face {
+    font-family: 'MyCursive';
+    src: url('EduNSWACTHandCursive.ttf');
+}
+
+/* 🌊 BACKGROUND */
+body {
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffe4ec, #e0f7fa);
+    color: #333;
+}
+
+
+
+
+
+#page2 {
+    background: url("t.jpg") no-repeat center center;
+    background-size: 100% 100%;   /* 👈 fills entire screen EXACTLY */
+}
+
+
+/* layout */
+.screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* text */
+h1 {
+    font-size: 48px;
+    font-family: 'MyCursive';
+}
+
+
+
+h {
+    font-size: 48px;
+color:#F8DDA4;
+
+    font-family: 'MyCursive';
+}
+
+
+
+.love {
+    font-size: 32px;
+    font-family: 'MyCursive';
+}
+
+/* image */
+img {
+    width: 300px;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+/* 🎁 buttons */
+button {
+    padding: 12px 20px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+/*  PAGE 2 BUTTON */
+.pg2-btn {
+    background: #F8DDA4;
+}
+
+.pg2-btn:hover {
+    background: #EAD2AC
+}
+
+
+
+
+
+/* page2 = NO transition */
+#page2 {
+    display: none;
+    opacity: 1;
+    transform: none;
+}
+
+/* other pages keep animation */
+#page1b, #page2b, #page3, #page4 {
+    display: none;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s ease;
+}
+
+#page1b.show, #page2b.show, #page3.show, #page4.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+#page2.show, #page3.show, #page4.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* 🖼️ FRAME IMAGE */
+.frame {
+    width: 55vw;        /* 👈 takes 70% of screen width */
+    max-width: 800px;   /* prevents too big on large screens */
+    animation: popIn 0.8s ease, float 3s ease-in-out infinite;
+
+}
+
+
+
+
+
+/* entry animation */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+
+
+
+
+
+/* 🐼 panda */
+.teddy-btn {
+    width: 220px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.teddy-btn:hover {
+    transform: scale(1.08);
+}
+
+/* hint */
+.hint {
+    font-size: 20px;
+    color: #ff4d6d;
+    font-family: 'MyCursive';
+}
+
+/* final text */
+.final-text {
+    font-size: 42px;
+    color: #ff4d6d;
+    text-shadow: 0 0 10px rgba(255,182,193,0.6);
+}
+
+/* letter */
+.letter {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 500px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+/* animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+
+
+/* 🌸 new page background */
+#page2b {
+    background: #ffe4ec;
+}
+
+/* split layout */
+.split {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* left text */
+.left-msg {
+    width: 50%;
+    font-size: 28px;
+    font-family: 'MyCursive';
+    color: #ff4d6d;
+    text-align: left;
+}
+
+/* right flower */
+.right-flower {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* flower image */
+.flower {
+    width: 400px;          /* 👈 bigger size */
+    max-width: 90%;
+    animation: slideIn 1s ease;
+}
+
+
+
+/* animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+// 🌸 flower typing text
+ 
+    function type() {
+        if (i < flowerMsg.length) {
+            el.innerHTML += flowerMsg.charAt(i);
+            i++;
+            setTimeout(type, 40);  // speed (lower = faster)
+        }
+    }
+
+    type();
+}
+
+
+
+
+
+
+/* same background as body */
+#page1b {
+    background: linear-gradient(to bottom, #ffe4ec, #e0f7fa);
+}
+
+/* heading */
+.gift-title {
+    font-size: 40px;
+    font-family: 'MyCursive';
+    color: #ff4d6d;
+}
+
+/* gift container */
+.gift-box {
+    position: relative;
+}
+
+/* gift image */
+.gift-img {
+    width: 500px;      
+    max-width: 90%;    }
+
+/* button on gift */
+.open-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff4d6d;
+}
+
+
+
+</style>
+
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="screen" id="page1">
+    <h1>Happy Birthday ❤️</h1>
+    <img src="gif.gif">
+    <p class="love">SMTG SMTG</p>
+   <button onclick="openPage1b()">Heheh 🎁</button>
+</div>
+
+
+
+
+<!-- NEW PAGE (SURPRISE GIFT) -->
+<div class="screen" id="page1b">
+
+    <h1 class="gift-title">SMTG SMTG</h1>
+
+    <div class="gift-box">
+        <img src="gift.jpg" class="gift-img">
+
+        <!-- button on gift -->
+        <button class="open-btn" onclick="openPage2()">Open 💖</button>
+    </div>
+
+</div>
+
+
+
+
+
+<!-- PAGE 2 -->
+<div class="screen" id="page2">
+
+    <img src="t1.png" class="frame">
+	 <h> smtg smtg</h>
+
+   <button class="pg2-btn" onclick="openPage2b()">Next 💌</button>
+
+</div>
+
+
+
+
+<!-- NEW PAGE (FLOWER + MESSAGE) -->
+<div class="screen" id="page2b">
+
+    <div class="split">
+
+        <!-- LEFT TEXT -->
+      <div class="left-msg">
+    <p id="flowerText" class="flower-text"></p>
+</div>
+
+        <!-- RIGHT FLOWER -->
+        <div class="right-flower">
+           <img src="flower.jpg" class="flower">
+        </div>
+
+    </div>
+
+    <button onclick="openPage3()">Next 💌</button>
+
+</div>
+
+
+
+
+
+
+<!-- PAGE 3 -->
+<div class="screen" id="page3">
+    <h1 class="final-text">Last but not the least 💖</h1>
+
+    <img src="gif3.gif" class="teddy-btn" onclick="openPage4()">
+
+    <p class="hint">(tap on Panda)</p>
+</div>
+
+
+
+<!-- PAGE 4 -->
+<div class="screen" id="page4">
+    <div class="letter">
+        <h2 style="font-family:'MyCursive'">💌 For You</h2>
+        <p id="letterText"></p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+/* page1 → page2 */
+function nextPage() {
+    switchPage("page1","page2");
+}
+
+
+
+
+function openPage1b() {
+    switchPage("page1","page1b");
+}
+
+
+function openPage2() {
+    switchPage("page1b","page2");
+}
+
+
+/* page2 → page3 */
+function openPage2b() {
+    switchPage("page2","page2b");
+
+    setTimeout(() => {
+        startFlowerTyping();
+    }, 700);
+}
+
+
+
+function openPage3() {
+    switchPage("page2b","page3");
+}
+
+
+
+
+/* page3 → page4 */
+function openPage4() {
+    switchPage("page3","page4");
+    startTyping();
+}
+
+
+
+/* switch function */
+function switchPage(from,to){
+    let p1 = document.getElementById(from);
+    let p2 = document.getElementById(to);
+
+    p1.style.opacity = "0";
+
+    setTimeout(() => {
+        p1.style.display = "none";
+        p2.style.display = "flex";
+
+        if(to !== "page2"){
+    setTimeout(() => {
+        p2.classList.add("show");
+    }, 50);
+}
+
+
+
+
+    }, 600);
+}
+
+/* typing effect */
+let letter = "SMTG SMTG";
+
+function startTyping() {
+    let el = document.getElementById("letterText");
+    el.innerHTML = "";
+    let i = 0;
+
+    function type() {
+        if (i < letter.length) {
+            if(letter.charAt(i) === "\n"){
+                el.innerHTML += "<br>";
+            } else {
+                el.innerHTML += letter.charAt(i);
+            }
+            i++;
+            setTimeout(type, 35);
+        }
+    }
+
+    type();
+}
+
+
+
+// 🌸 flower typing text
+let flowerMsg = "SMTG SMTG";
+
+function startFlowerTyping() {
+    let el = document.getElementById("flowerText");
+
+    if (!el) return;
+
+    el.innerHTML = "";
+    let i = 0;
+
+    function type() {
+        if (i < flowerMsg.length) {
+            el.innerHTML += flowerMsg.charAt(i);
+            i++;
+            setTimeout(type, 40);
+        }
+    }
+
+    type();
+}
+
+</script>
+
+</body>
+</html>
